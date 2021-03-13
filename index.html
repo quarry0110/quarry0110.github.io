@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head><title>Index of ./quarry</title></head>
+<style type="text/css">
+    body{
+        font-family: consolas;
+        width: 90%;
+        margin-left: 1%;
+    }
+
+
+    img{
+        width: 40%;
+    }
+
+    hr{
+        height:1px;
+        border-width:0;
+        color:white;
+        background-color:black;
+    }
+
+    h2{
+        font-weight: normal;
+    }
+
+
+
+    .hello{
+        position: fixed;
+        left: 1%;
+        top: 80%;
+        width: 100%;
+        line-height: 25px;
+        font-size: 15px;
+    }
+
+    .dr{
+        position: fixed;
+        left: 1%;
+        top: 58%;
+    }
+
+    .drag{
+        position:relative;
+        cursor:hand;
+        z-index: 100;
+    }
+
+
+
+</style>
+
+<body>
+    
+    <div class="index">
+    <h2>Index of ./quarry</h2>
+    <hr>
+    <ul>
+        <li>
+            <a href='../'>../</a>
+        </li>
+        <li>
+            <a href='keldestgirl'>keldestgirl</a>
+        </li>
+        <li>
+            <a href='folder2'>folder2</a>
+        </li>
+        <li>
+            <a href='file.txt'>file.txt</a>
+        </li>
+    </ul>
+    </div>
+
+
+    <div class="hello">
+        <div class="hel1">
+        </div>
+
+        <div class="hel2">
+        <p>
+        QUARRY QUARRY QUARRY QUARRY QUARRY 
+        QUARRY QUARRY QUARRY QUARRY QUARRY
+        <br>
+        QUARRY QUARRY QUARRY QUARRY QUARRY 
+        QUARRY QUARRY QUARRY QUARRY QUARRY 
+        </p>
+        
+        <p> 
+        email: quarry0110@gmail.com
+        <br>
+        github: quarry0110
+        <br> 
+        instagram: @quarry.press
+        </p>
+        </div>
+
+    <div class="dr">
+    <img src="quarry.png" class="drag">
+    </div>
+
+
+    </div>
+
+
+
+<script type="text/javascript">
+
+var dragobject={
+z: 0, x: 0, y: 0, offsetx : null, offsety : null, targetobj : null, dragapproved : 0,
+initialize:function(){
+document.onmousedown=this.drag
+document.onmouseup=function(){this.dragapproved=0}
+},
+drag:function(e){
+var evtobj=window.event? window.event : e
+this.targetobj=window.event? event.srcElement : e.target
+if (this.targetobj.className=="drag"){
+this.dragapproved=1
+if (isNaN(parseInt(this.targetobj.style.left))){this.targetobj.style.left=0}
+if (isNaN(parseInt(this.targetobj.style.top))){this.targetobj.style.top=0}
+this.offsetx=parseInt(this.targetobj.style.left)
+this.offsety=parseInt(this.targetobj.style.top)
+this.x=evtobj.clientX
+this.y=evtobj.clientY
+if (evtobj.preventDefault)
+evtobj.preventDefault()
+document.onmousemove=dragobject.moveit
+}
+},
+moveit:function(e){
+var evtobj=window.event? window.event : e
+if (this.dragapproved==1){
+this.targetobj.style.left=this.offsetx+evtobj.clientX-this.x+"px"
+this.targetobj.style.top=this.offsety+evtobj.clientY-this.y+"px"
+return false
+}
+}
+}
+
+dragobject.initialize()
+
+</script>
+</body>
+</html>
